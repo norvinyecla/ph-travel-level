@@ -1,14 +1,14 @@
 const Form = (props: FormProps) => {
     return (props.show === true) && <>
         <div> 
-            <h5>{props.name}</h5>
+            <h4>Header test</h4>
+           <input type='number' />
         </div>
     </>
 }
 
 type FormProps = {
-    show: boolean,
-    name: string
+    show: boolean
 }
 
 export default Form;
