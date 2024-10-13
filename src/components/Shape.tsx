@@ -1,8 +1,11 @@
 import {useState} from "react";
+import Form from "./Form";
+
 
 const Shape = (props: ShapeProps) => {
     const [level, setLevel] = useState(0);
     const [show, setShow] = useState(false);
+    const [currentlySelected, setCurrentlySelected] = useState('');
 
     const incrementClickHandler = () => {
         setLevel((prevState) => prevState + 1);
@@ -14,7 +17,11 @@ const Shape = (props: ShapeProps) => {
 
     const showHideClickHandler = () => {
         setShow((prevState) => !prevState);
+
+        setCurrentlySelected(props.name);        
     }
+
+    const form = <Form show={show} name={currentlySelected} />
 
     return <>
         <div>
@@ -24,7 +31,7 @@ const Shape = (props: ShapeProps) => {
             <button onClick={decrementClickHandler}>Decrement</button>
             <button onClick={showHideClickHandler}>Show/Hide</button>
 
-            { show ? `Show` : ''}
+            {form}
         </div>
     </>
 }
